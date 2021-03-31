@@ -1,7 +1,6 @@
 package com.bridgelabz;
 import java.util.*;
 
-
 public class addressbook {
     static Scanner input = new Scanner(System.in);
     static String[] info;
@@ -16,6 +15,8 @@ public class addressbook {
     static HashMap<String, String> state = new HashMap<>();
     static String[] contact = new String[8];
     static int index;
+    static int numOfContacts = 0;
+
     // Taking all details input in an array
     public static String[] contactDetailsInput() {
         System.out.println("Enter your details accordingly \n1. First Name\n2. Last Name\n"
@@ -34,6 +35,7 @@ public class addressbook {
         state.put(contact[0], contact[4]);
         stateCitynameList.add(contact[3]);
         stateCitynameList.add(contact[4]);
+        numOfContacts++;
         return contact;
     }
     // To check if First name is already in some other conatct name
@@ -75,7 +77,7 @@ public class addressbook {
                 contacts = addressbooks.get(name);
                 while (bool) {
                     System.out.println("Type the following numbers if you want to perform the corresponding action");
-                    System.out.println("1. EDIT\n2. DELETE\n3. ADD NEW CONTACT\nAnyNumber. EXIT");
+                    System.out.println("1. EDIT\n2. DELETE\n3. ADD NEW CONTACT\n4. Total Number of contact\nAnyNumber. EXIT");
                     action = input.nextInt();
                     switch (action) {
                         case 1:
@@ -100,6 +102,9 @@ public class addressbook {
                             for (int index = 0; index < info.length; index++)
                                 System.out.println(info[index]);
                             break;
+                        case 4:
+                            System.out.println("Total Number of Contacts are " + numOfContacts);
+
                         default:
                             bool = false;
                     }
